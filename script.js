@@ -1,12 +1,12 @@
 const pradera = document.getElementById("pradera");
-const cantidad = 4000;
+const cantidad = 5000;
 const pajares = [];
 
 for (let i = 0; i < cantidad; i++) {
     const pajar = document.createElement("div");
     pajar.classList.add("pajar");
 
-    pajar.style.left = Math.random() * 100 + "vw";
+    pajar.style.left = Math.random() * 99 + "vw";
     pajar.style.top = Math.random() * 89 + "vh";
 
     pradera.appendChild(pajar);
@@ -47,5 +47,31 @@ document.addEventListener("mousemove", (e) => {
             pajar.style.transform = "rotate(0deg)";
         }
     });
+
+});
+
+const aguja = document.getElementById("aguja");
+
+function posicionAleatoria() {
+
+    const margenh = 5; // % margin
+    const margenv = 10; // % margin
+
+    const x = Math.random() * (100 - margenh * 2) + margenh;
+    const y = Math.random() * (100 - margenv * 2) + margenv;
+
+    aguja.style.left = x + "vw";
+    aguja.style.top = y + "vh";
+}
+
+posicionAleatoria();
+
+document.addEventListener("click", function(e) {
+
+    const elementoEncima = document.elementFromPoint(e.clientX, e.clientY);
+
+    if (elementoEncima === aguja) {
+        window.location.href = "pagina2.html";
+    }
 
 });

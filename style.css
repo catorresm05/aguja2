@@ -7,6 +7,9 @@ body {
       "wdth" 100;
     color: #111111;
     font-optical-sizing: auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
 }
 
 #fondo {
@@ -60,11 +63,10 @@ body {
         #c0c0c0 50%,
         #aaaaaa 70%,
         #aaaaaa 100%);
-    top: 40%;
-    right: 30%;
     border-radius: 60% 60% 40% 40%;
     box-shadow: inset 0 0.09vh 0.2vh rgba(0, 0, 0, 0.3);
     z-index: 1;
+    cursor: default;
 }
 
 .pajar {

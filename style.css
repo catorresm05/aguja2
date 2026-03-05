@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+    color: #111111;
+    font-optical-sizing: auto;
+}
+
+#fondo {
+    position: relative;
+    width: 100vw;
+    /* full viewport width significa ancho de la ventana gráfica */
+    height: 100vh;
+    transition: background 5s ease;
+    overflow: hidden;
+    background: repeating-linear-gradient(to bottom,
+            #d8b35a 0vh,
+            #c79a3c 10vh,
+            #d8b35a 20vh); 
+    background-size: 100% 20vh; 
+    animation: caida 5s infinite linear;
+    will-change: background-position;
+    z-index: 0;
+}
+
+@keyframes caida {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 20vh;
+    }
+}
+
+#pradera {
+   
+    inset: 0;
+    z-index: 1;
+}
+
+#titulo {
+    position: absolute;
+    top: 10vh;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+#aguja {
+    position: absolute;
+    width: 0.25%;
+    height: 3%;
+    background: linear-gradient(to bottom right,
+        #aaaaaa 0%,
+        #aaaaaa 30%,
+        #c0c0c0 50%,
+        #aaaaaa 70%,
+        #aaaaaa 100%);
+    top: 40%;
+    right: 30%;
+    border-radius: 60% 60% 40% 40%;
+    box-shadow: inset 0 0.09vh 0.2vh rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.pajar {
+    position: absolute;
+    width: 0.5%;
+    height: 11%;
+    background:
+        linear-gradient(to bottom,
+            #d8b35a 0%,
+            #c79a3c 100%);
+    border-radius: 50% 50% 20% 20%;
+    z-index: 2;
+    transform-origin: bottom center;
+    transition: transform 0.15s ease;
+    will-change: transform;
+}
+
+.pagina2 {
+    margin: 0;
+    background: #111;
+}
+
+.grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2.5vw;
+    row-gap: 2.5vw;
+
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+}
+
+.bloque {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    border-radius: 1.8vw;
+    overflow: hidden;
+    box-shadow: 0 1vw 2vw rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.bloque:hover {
+    transform: scale(1.06);
+}
+
+.bloque iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}

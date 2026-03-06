@@ -13,8 +13,14 @@ for (let i = 0; i < cantidad; i++) {
     pajares.push(pajar);
 }
 
-const radio = 200; // radio de influencia en px
-const maxRotacion = 70; // grados máximos hpña
+const radioVW = 10;
+const maxRotacion = 70;
+
+function getRadioPx() {
+    return window.innerWidth * (radioVW / 100);
+}
+
+const radio = getRadioPx();
 
 document.addEventListener("mousemove", (e) => {
 

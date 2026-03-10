@@ -127,18 +127,14 @@ body {
     text-align: center;
     margin-top: 4vh;
     margin-bottom: 6vh;
-}
-
-#volver a {
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: 5vh;
     color: #111111;
-    text-decoration: none;
 }
 
-#volver a:hover {
+#volver:hover {
     opacity: 0.7;
-} 
+}
 
 #instagram {
     position: fixed;
@@ -147,5 +143,4 @@ body {
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: 1.8vh;
     color: #111111;
-    opacity: 0.7;
 }

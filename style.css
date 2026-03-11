@@ -74,9 +74,9 @@ body {
             #d8b35a 0%,
             #c79a3c 100%);
     border-radius: 50% 50% 20% 20%;
+    will-change: transform;
     z-index: 2;
     transform-origin: bottom center;
-    transition: transform 0.15s ease;
 }
 
 .grid {

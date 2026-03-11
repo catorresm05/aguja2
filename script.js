@@ -1,16 +1,24 @@
 const pradera = document.getElementById("pradera");
-const cantidad = 4000;
+const cantidad = 6000;
 const pajares = [];
 
 for (let i = 0; i < cantidad; i++) {
     const pajar = document.createElement("div");
     pajar.classList.add("pajar");
 
-    pajar.style.left = Math.random() * 99 + "vw";
-    pajar.style.top = Math.random() * 89 + "vh";
+    const x = Math.random() * 99;
+    const y = Math.random() * 89;
+
+    pajar.style.left = x + "vw";
+    pajar.style.top = y + "vh";
 
     pradera.appendChild(pajar);
-    pajares.push(pajar);
+
+    pajares.push({
+        element: pajar,
+        x: x,
+        y: y
+    });
 }
 
 const radioVW = 10;
@@ -20,7 +28,11 @@ function getRadioPx() {
     return window.innerWidth * (radioVW / 100);
 }
 
-const radio = getRadioPx();
+let radio = getRadioPx();
+
+window.addEventListener("resize", () => {
+    radio = getRadioPx();
+});
 
 document.addEventListener("mousemove", (e) => {
 
@@ -29,9 +41,8 @@ document.addEventListener("mousemove", (e) => {
 
     pajares.forEach(pajar => {
 
-        const rect = pajar.getBoundingClientRect();
-        const centroX = rect.left + rect.width / 2;
-        const baseY = rect.bottom;
+        const centroX = (pajar.x / 100) * window.innerWidth;
+        const baseY = ((pajar.y + 11) / 100) * window.innerHeight;
 
         const dx = centroX - mouseX;
         const dy = baseY - mouseY;
@@ -44,13 +55,13 @@ document.addEventListener("mousemove", (e) => {
             const rotacion = maxRotacion * intensidad;
 
             if (dx > 0) {
-                pajar.style.transform = `rotate(${rotacion}deg)`;
+                pajar.element.style.transform = `rotate(${rotacion}deg)`;
             } else {
-                pajar.style.transform = `rotate(-${rotacion}deg)`;
+                pajar.element.style.transform = `rotate(-${rotacion}deg)`;
             }
 
         } else {
-            pajar.style.transform = "rotate(0deg)";
+            pajar.element.style.transform = "rotate(0deg)";
         }
     });
 

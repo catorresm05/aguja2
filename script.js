@@ -1,5 +1,5 @@
 const pradera = document.getElementById("pradera");
-const cantidad = 5000;
+const cantidad = 4000;
 const pajares = [];
 
 for (let i = 0; i < cantidad; i++) {

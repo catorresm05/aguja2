@@ -1,24 +1,53 @@
 const pradera = document.getElementById("pradera");
+const pradera2 = document.getElementById("pradera2");
+
 const cantidad = 6000;
+const cantidad2 = 2000;
+
 const pajares = [];
 
-for (let i = 0; i < cantidad; i++) {
-    const pajar = document.createElement("div");
-    pajar.classList.add("pajar");
+if (pradera) {
+    for (let i = 0; i < cantidad; i++) {
+        const pajar = document.createElement("div");
+        pajar.classList.add("pajar");
+
+        const x = Math.random() * 99;
+        const y = Math.random() * 89;
+
+        pajar.style.left = x + "vw";
+        pajar.style.top = y + "vh";
+
+        pradera.appendChild(pajar);
+
+        pajares.push({
+            element: pajar,
+            x: x,
+            y: y
+        });
+    }
+}
+
+const pajares2 = [];
+
+if (pradera2) {
+for (let i = 0; i < cantidad2; i++) {
+    const pajar2 = document.createElement("div");
+    pajar2.classList.add("pajar");
 
     const x = Math.random() * 99;
     const y = Math.random() * 89;
 
-    pajar.style.left = x + "vw";
-    pajar.style.top = y + "vh";
+    pajar2.style.left = x + "vw";
+    pajar2.style.top = y + "vh";
 
-    pradera.appendChild(pajar);
+    pradera2.appendChild(pajar2);
 
-    pajares.push({
-        element: pajar,
+    pajares2.push({
+        element: pajar2,
         x: x,
         y: y
     });
+}
 }
 
 const radioVW = 10;
@@ -64,6 +93,33 @@ document.addEventListener("mousemove", (e) => {
             pajar.element.style.transform = "rotate(0deg)";
         }
     });
+
+    pajares2.forEach(pajar => {
+
+        const centroX = (pajar.x / 100) * window.innerWidth;
+        const baseY = ((pajar.y + 11) / 100) * window.innerHeight;
+
+        const dx = centroX - mouseX;
+        const dy = baseY - mouseY;
+
+        const distancia = Math.sqrt(dx * dx + dy * dy);
+
+        if (distancia < radio) {
+
+            const intensidad = 1 - (distancia / radio);
+            const rotacion = maxRotacion * intensidad;
+
+            if (dx > 0) {
+                pajar.element.style.transform = `rotate(${rotacion}deg)`;
+            } else {
+                pajar.element.style.transform = `rotate(-${rotacion}deg)`;
+            }
+
+        } else {
+            pajar.element.style.transform = "rotate(0deg)";
+        }
+});
+
 
 });
 

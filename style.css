@@ -38,8 +38,25 @@ body {
 }
 
 #pradera {
-    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    pointer-events: none; 
 }
+
+#pradera2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none; 
+}
+
 
 #titulo {
     position: absolute;
@@ -47,6 +64,7 @@ body {
     width: 100%;
     text-align: center;
     z-index: 3;
+    pointer-events: none; 
 }
 
 #aguja {
@@ -81,7 +99,7 @@ body {
 
 .grid {
     display: grid;
-
+    position: relative;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 2.5vw;
     row-gap: 5vw;
@@ -90,6 +108,7 @@ body {
     margin-right: 5vw;
     margin-top: 8vh;
     margin-bottom: 8vh;
+    z-index: 5;
 }
 
 .bloque {
@@ -100,6 +119,7 @@ body {
     overflow: hidden;
     box-shadow: 0 1vw 2vw black;
     transition: transform 0.3s ease;
+    z-index: 5;
 }
 
 .bloque:hover {
@@ -113,6 +133,7 @@ body {
 }
 
 #volver {
+    position: relative;
     width: 100%;
     text-align: center;
     margin-top: 4vh;
@@ -121,11 +142,16 @@ body {
     font-size: 5vh;
     font-weight: 200;
     color: #111111;
+    z-index: 6;
+}
+
+#volver a {
+    color: #111111;
+    text-decoration: none;
 }
 
 #volver:hover {
     transform: scale(1.02);
-    transition: 0.2s ease-in-out;
 }
 
 #instagram {
@@ -135,4 +161,5 @@ body {
     font-family: "Bricolage Grotesque", sans-serif;
     font-size: 1.8vh;
     color: #111111;
+    z-index: 6;
 }

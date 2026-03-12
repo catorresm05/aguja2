@@ -50,11 +50,11 @@ for (let i = 0; i < cantidad2; i++) {
 }
 }
 
-const radioVW = 6;
+const radioVH = 10.7;
 const maxRotacion = 70;
 
 function getRadioPx() {
-    return window.innerWidth * (radioVW / 100);
+    return window.innerHeight * (radioVH / 100);
 }
 
 let radio = getRadioPx();
